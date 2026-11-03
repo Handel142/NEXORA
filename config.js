@@ -1,2 +1,2 @@
 // Add your Supabase project URL and public anon key here. Never use service_role.
-window.NEXORA_CONFIG = { supabaseUrl: 'https://tqjdzuzhatpnswwfally.supabase.co', supabaseAnonKey: '', turnServers: [] };
+window.NEXORA_CONFIG = { supabaseUrl: 'https://tqjdzuzhatpnswwfally.supabase.co', supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxamR6dXpoYXRwbnN3d2ZhbGx5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM3Mjk4NTEsImV4cCI6MjEwOTMwNTg1MX0.T7dEGoHRffAGbXEDUc4vi_ienjlZuc68W86xWrcr7nc', turnServers: [] };
