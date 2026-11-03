@@ -1,0 +1,22 @@
+# Local/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+coverage/
+
+# Local secrets and environment files (never commit service-role keys)
+.env
+.env.*
+!.env.example
+backend/config.local.js
+
+# Python caches
+__pycache__/
+*.py[cod]
