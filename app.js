@@ -169,10 +169,10 @@
   function showProfile(){ $('#nameInput').value=state.name==='Player'?'':state.name;$('#profileModal').classList.add('open');$('#profileModal').setAttribute('aria-hidden','false');$('#nameInput').focus() }
   function hideProfile(){$('#profileModal').classList.remove('open');$('#profileModal').setAttribute('aria-hidden','true')}
   const tracks=[
-    {src:'assets/audio/music/01-the-threshold.mp3',title:'THE THRESHOLD',mood:'CINEMATIC · MAIN THEME'},
-    {src:'assets/audio/music/02-evidence-in-rain.mp3',title:'EVIDENCE IN RAIN',mood:'MYSTERY · INVESTIGATION'},
-    {src:'assets/audio/music/03-the-last-lock.mp3',title:'THE LAST LOCK',mood:'TENSION · CODE BREAKING'},
-    {src:'assets/audio/music/04-after-the-choice.mp3',title:'AFTER THE CHOICE',mood:'EMOTIONAL · REFLECTION'}
+    {src:'./01-the-threshold.mp3',title:'THE THRESHOLD',mood:'CINEMATIC · MAIN THEME'},
+    {src:'./02-evidence-in-rain.mp3',title:'EVIDENCE IN RAIN',mood:'MYSTERY · INVESTIGATION'},
+    {src:'./03-the-last-lock.mp3',title:'THE LAST LOCK',mood:'TENSION · CODE BREAKING'},
+    {src:'./04-after-the-choice.mp3',title:'AFTER THE CHOICE',mood:'EMOTIONAL · REFLECTION'}
   ];
   let trackIndex=0;
   const music=$('#musicAudio');
