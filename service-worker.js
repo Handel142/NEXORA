@@ -1,4 +1,4 @@
-const CACHE='nexora-mindtrap-v4';
+const CACHE='nexora-mindtrap-v4-2-stable-nav';
 const FILES=['./','./index.html','./src/styles.css','./src/app.js','./src/multiplayer.js','./manifest.webmanifest','./public/icon.svg','./public/icon-192.png','./public/icon-512.png','./assets/audio/music/01-the-threshold.mp3','./assets/audio/music/02-evidence-in-rain.mp3','./assets/audio/music/03-the-last-lock.mp3','./assets/audio/music/04-after-the-choice.mp3'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES))));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))));
