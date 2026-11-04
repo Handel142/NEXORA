@@ -1,1 +1,35 @@
-{"name":"NEXORA — The Mind Trap","short_name":"NEXORA","description":"A Kenyan original mind-game experience.","start_url":"./","display":"standalone","background_color":"#080c16","theme_color":"#080c16","orientation":"portrait","icons":[{"src":"public/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "name": "NEXORA \u2014 The Mind Trap",
+  "short_name": "NEXORA",
+  "description": "A Kenyan original mind-game experience.",
+  "start_url": "./?source=pwa",
+  "display": "standalone",
+  "background_color": "#080c16",
+  "theme_color": "#080c16",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "public/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "public/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "public/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "scope": "./",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ]
+}

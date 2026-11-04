@@ -1,5 +1,5 @@
-const CACHE='nexora-mindtrap-v3';
-const FILES=['./','./index.html','./src/styles.css','./src/app.js','./src/multiplayer.js','./manifest.webmanifest','./public/icon.svg','./assets/audio/music/01-the-threshold.mp3','./assets/audio/music/02-evidence-in-rain.mp3','./assets/audio/music/03-the-last-lock.mp3','./assets/audio/music/04-after-the-choice.mp3'];
+const CACHE='nexora-mindtrap-v4';
+const FILES=['./','./index.html','./src/styles.css','./src/app.js','./src/multiplayer.js','./manifest.webmanifest','./public/icon.svg','./public/icon-192.png','./public/icon-512.png','./assets/audio/music/01-the-threshold.mp3','./assets/audio/music/02-evidence-in-rain.mp3','./assets/audio/music/03-the-last-lock.mp3','./assets/audio/music/04-after-the-choice.mp3'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES))));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))));
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const url=new URL(e.request.url);if(url.pathname.endsWith('/backend/config.js')){e.respondWith(fetch(e.request).catch(()=>new Response('window.NEXORA_CONFIG = {};',{headers:{'Content-Type':'application/javascript'}})));return;}e.respondWith(caches.match(e.request).then(hit=>hit||fetch(e.request).then(res=>{if(res.ok){const copy=res.clone();caches.open(CACHE).then(c=>c.put(e.request,copy))}return res}).catch(()=>caches.match('./index.html'))))});
