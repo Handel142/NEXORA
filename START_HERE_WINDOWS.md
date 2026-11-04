@@ -19,7 +19,7 @@ If Python is not installed, install Python 3 for Windows and enable **Add Python
 - Finish a level and try the certificate buttons. The image files download; the print dialog can save a PDF.
 - Tap somewhere in the app to start the soft soundtrack; use the player to pause, change track and volume.
 
-Online multiplayer will remain in offline-preview mode until you configure Supabase.
+Online multiplayer remains unavailable until the Supabase URL/key are supplied and Anonymous Sign-Ins are enabled. V4.3 supports guest players without passwords.
 
 ## 3. Connect the existing Supabase project
 
@@ -27,9 +27,10 @@ For the current V3 deployment:
 
 1. Back up the database.
 2. Run `backend/upgrade_v4.sql` in Supabase SQL Editor.
-3. Add the Supabase project URL and public anon/publishable key to `backend/config.js`.
-4. Never use a service-role key in `config.js`.
-5. Redeploy the complete folder to Netlify over HTTPS.
+3. For Netlify Git deployments, add `SUPABASE_URL` and `SUPABASE_ANON_KEY` under Site configuration → Environment variables. For manual drag-and-drop uploads, add the project URL and public anon key to `backend/config.js`.
+4. In Supabase Authentication, enable Anonymous Sign-Ins so online players can join without password accounts.
+5. Never use a service-role key in browser code.
+6. Redeploy the complete folder to Netlify over HTTPS.
 
 For a brand-new Supabase project, run `backend/schema.sql`, then `backend/upgrade_v3.sql`, then `backend/upgrade_v4.sql`.
 

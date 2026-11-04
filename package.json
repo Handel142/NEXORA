@@ -1,0 +1,6 @@
+{
+  "name": "nexora-the-mind-trap",
+  "version": "4.3.0",
+  "private": true,
+  "scripts": { "build": "node scripts/build-config.js" }
+}

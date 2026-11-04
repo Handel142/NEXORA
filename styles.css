@@ -112,3 +112,10 @@ body.in-match .topbar nav,body.in-match .topbar .profile-chip{display:none!impor
 @media(max-width:760px){.community-grid,.admin-columns{grid-template-columns:1fr}.community-head{align-items:flex-start;flex-direction:column}.community-screen{padding:14px}.community-head h2{font-size:30px}.admin-heading{align-items:flex-start;flex-direction:column}}
 main#home>#community{display:none!important}
 body[data-page="community"] main#home>#community{display:block!important}
+
+/* V4.3 — safe bottom clearance for platform badges, mobile gesture areas and notices */
+html{scroll-padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+.app-shell{padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+.toast{bottom:calc(88px + env(safe-area-inset-bottom))}
+@media(max-width:600px){body{padding-bottom:calc(84px + env(safe-area-inset-bottom))}.topbar{padding-top:env(safe-area-inset-top)}}

@@ -173,10 +173,10 @@
   function showProfile(){ $('#nameInput').value=state.name==='Player'?'':state.name;$('#avatarPreview').textContent=state.name[0].toUpperCase();if(state.avatar){$('#avatarPreview').style.backgroundImage=`url(${state.avatar})`;$('#avatarPreview').style.backgroundSize='cover';$('#avatarPreview').style.backgroundPosition='center';$('#avatarPreview').textContent='';}else{$('#avatarPreview').style.backgroundImage='';}$('#profileModal').classList.add('open');$('#profileModal').setAttribute('aria-hidden','false');$('#nameInput').focus() }
   function hideProfile(){$('#profileModal').classList.remove('open');$('#profileModal').setAttribute('aria-hidden','true')}
   const tracks=[
-    {src:'/01-the-threshold.mp3',title:'THE THRESHOLD',mood:'CINEMATIC · MAIN THEME'},
-    {src:'/02-evidence-in-rain.mp3',title:'EVIDENCE IN RAIN',mood:'MYSTERY · INVESTIGATION'},
-    {src:'/03-the-last-lock.mp3',title:'THE LAST LOCK',mood:'TENSION · CODE BREAKING'},
-    {src:'/04-after-the-choice.mp3',title:'AFTER THE CHOICE',mood:'EMOTIONAL · REFLECTION'}
+    {src:'assets/audio/music/01-the-threshold.mp3',title:'THE THRESHOLD',mood:'CINEMATIC · MAIN THEME'},
+    {src:'assets/audio/music/02-evidence-in-rain.mp3',title:'EVIDENCE IN RAIN',mood:'MYSTERY · INVESTIGATION'},
+    {src:'assets/audio/music/03-the-last-lock.mp3',title:'THE LAST LOCK',mood:'TENSION · CODE BREAKING'},
+    {src:'assets/audio/music/04-after-the-choice.mp3',title:'AFTER THE CHOICE',mood:'EMOTIONAL · REFLECTION'}
   ];
   let trackIndex=0;
   const music=$('#musicAudio');
@@ -196,6 +196,6 @@
   let installPrompt=null;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;$('#installApp').hidden=false;});$('#installApp').addEventListener('click',async()=>{if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;$('#installApp').hidden=true;}else{$('#installInstructions').textContent=/iPhone|iPad|iPod/i.test(navigator.userAgent)?'In Safari, tap Share, then Add to Home Screen.':'Open your browser menu and choose Install app or Add to Home Screen.';$('#installHelp').classList.add('open');$('#installHelp').setAttribute('aria-hidden','false');}});function closeInstallHelp(){$('#installHelp').classList.remove('open');$('#installHelp').setAttribute('aria-hidden','true');}$('#closeInstallHelp').addEventListener('click',closeInstallHelp);$('#closeInstallHelpAction').addEventListener('click',closeInstallHelp);window.addEventListener('appinstalled',()=>{$('#installApp').hidden=true;toast('NEXORA installed successfully');});
   function awardBadge(label){state.badges=state.badges||[];if(!state.badges.includes(label)){state.badges.push(label);save();}}
   window.NEXORA_APP={createCertificate,openLevelPicker,unlocked,awardBadge,getState:()=>({...state})};
-  renderStats();state.sound=false;$('#soundLabel').textContent='Play music';setTrack(0,false);const startAmbientMusic=e=>{if(e?.target?.closest?.('#soundToggle,#musicPlay'))return;if(!state.musicDisabled&&music.paused)playMusic();};document.addEventListener('pointerdown',startAmbientMusic,{once:true});document.addEventListener('keydown',startAmbientMusic,{once:true});
+  renderStats();state.sound=false;$('#soundLabel').textContent='Play music';setTrack(0,false);const startAmbientMusic=e=>{if(e?.target?.closest?.('#soundToggle,#musicPlay'))return;if(!state.musicDisabled&&music.paused)playMusic();};if(!state.musicDisabled){playMusic().catch(()=>{});document.addEventListener('pointerdown',startAmbientMusic,{once:true});document.addEventListener('keydown',startAmbientMusic,{once:true});}
   if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));
 })();
